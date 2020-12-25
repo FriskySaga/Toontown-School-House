@@ -4,7 +4,7 @@ from direct.interval.IntervalGlobal import *
 from . import HolidayDecorator
 from toontown.toonbase import ToontownGlobals
 from panda3d.core import Vec4, CSDefault, TransformState, NodePath, TransparencyAttrib
-from panda3d.toontown import loadDNAFile
+from toontown.toonbase.ToontownLoader import ToontownLoader
 from toontown.hood import GSHood
 
 class CrashedLeaderBoardDecorator(HolidayDecorator.HolidayDecorator):
@@ -41,7 +41,7 @@ class CrashedLeaderBoardDecorator(HolidayDecorator.HolidayDecorator):
             return
         storageFile = base.cr.playGame.hood.storageDNAFile
         if storageFile:
-            loadDNAFile(self.dnaStore, storageFile, CSDefault)
+            ToontownLoader.loadDNAFile(self.dnaStore, storageFile, CSDefault)
         self.swapIval = self.getSwapVisibleIval()
         if self.swapIval:
             self.swapIval.start()
